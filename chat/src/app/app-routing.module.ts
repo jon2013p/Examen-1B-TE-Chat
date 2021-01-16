@@ -20,7 +20,7 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule)
   },
   {
-    path: 'dashboard',
+    path: 'chat',
     loadChildren: () => import('./chat/chat.module').then(m => m.ChatPageModule)
   },
 ];

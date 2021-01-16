@@ -1,9 +1,39 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>chat</ion-title>
+  <ion-toolbar color='medium'>
+    <ion-title>
+      Chat App
+    </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
+  <ion-card *ngFor='let chat of chats'>
 
+    <ion-card-header color='dark'>
+      {{ chat.email }}:
+    </ion-card-header>
+    <ion-card-content>
+      <br>
+      {{ chat.message }}
+      <br>
+      <img src='{{chat.image}}' *ngIf='chat.image'>
+      {{ chat.time | date:'dd/MM/yyyy HH:mm:ss'}}
+    </ion-card-content>
+    <ion-card-content>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-input placeholder='Escribe un mensaje' [(ngModel)]='message'></ion-input>
+    <ion-buttons slot='end'>
+      <ion-button (click)='presentActionSheetCamera()'>
+        <ion-icon name='image-outline'></ion-icon>
+      </ion-button>
+      <ion-button (click)='sendMessage()'>
+        <ion-icon name='send-outline'></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-button color='medium' (click)='logout()'>Salir</ion-button>
+</ion-footer>
